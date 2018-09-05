@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux'
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import CommentApp from "./CommentApp";
+import CommentApp from "./containers/CommentApp";
+import commentReducer from './reducers/comments'
 
-ReactDOM.render(<CommentApp />, document.getElementById('root'));
+const store = createStore(commentReducer)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <CommentApp/>
+    </Provider>, document.getElementById('root'));
 registerServiceWorker();

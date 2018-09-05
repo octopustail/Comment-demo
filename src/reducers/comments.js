@@ -22,7 +22,7 @@ export default function (state, action) {
         case DELETE_COMMENT:
             return {
                 comments: [
-                    ...state.comments.slice(0, action.commentIndex), ...state.comments.slice(commentIndex + 1)
+                    ...state.comments.slice(0, action.commentIndex), ...state.comments.slice(action.commentIndex + 1)
                 ]
             };
         case ADD_COMMENT:
